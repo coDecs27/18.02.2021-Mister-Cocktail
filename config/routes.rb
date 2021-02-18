@@ -11,4 +11,9 @@ Rails.application.routes.draw do
   # A user can see the details of a given cocktail,
   # with the dose needed for each ingredient
   get "cocktails/:id", to: "cocktails#show", as: :cocktail
+
+  # A user can add a new dose (ingredient/description pair)
+  # to an existing cocktail
+  get "cocktails/:id/doses/new", to: "doses#new", as: :new_dose # WRONG
+  post "cocktails/:id/doses", to: "doses#create" # WRONG
 end
