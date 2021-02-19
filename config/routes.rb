@@ -14,6 +14,10 @@ Rails.application.routes.draw do
 
   # A user can add a new dose (ingredient/description pair)
   # to an existing cocktail
-  get "cocktails/:id/doses/new", to: "doses#new", as: :new_dose # WRONG
-  post "cocktails/:id/doses", to: "doses#create" # WRONG
+  resources :cocktails do
+    resources :doses, only: [ :new, :create ]
+  end
+
+  # A user can delete a dose that belongs to an existing cocktail
+  delete "doses/:id", to: "doses#destroy"
 end
