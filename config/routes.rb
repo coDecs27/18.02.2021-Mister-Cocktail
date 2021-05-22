@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  # root to: "cocktails#index"
+  root to: "cocktails#index"
 
   # A user can see the list of cocktails
   get "cocktails", to: "cocktails#index"
